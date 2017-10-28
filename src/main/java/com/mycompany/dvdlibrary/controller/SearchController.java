@@ -11,7 +11,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +24,9 @@ import com.mycompany.dvdlibrary.dao.SearchTerm;
 import com.mycompany.dvdlibrary.model.Dvd;
 import com.mycompany.dvdlibrary.service.DvdLibraryService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class SearchController {
 
@@ -28,7 +34,8 @@ public class SearchController {
 	DvdLibraryService dvdLibraryService;
 
 	@RequestMapping(value = "api/dvd/search", method = RequestMethod.POST, produces = "application/json")
-	public @ResponseBody List<Dvd> update(@RequestBody Map<String, Object> model) {
+	public @ResponseBody
+	List<Dvd> update(@RequestBody Map<String, Object> model) {
 		HashMap<String, String> errors = new HashMap<String, String>();
 
 		String keyword = (String) model.get("keyword");
@@ -42,4 +49,5 @@ public class SearchController {
 
 		return dvds;
 	}
+
 }

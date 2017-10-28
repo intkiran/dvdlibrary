@@ -103,7 +103,9 @@
                                + item.dvdId + ')" >Delete</a></td></tr>';
                        });
 
-                       $('#dvdTable').append(trHTML);
+                       $('#dvdTable').append(trHTML); or
+                       $('.table').append(trHTML); or
+                       $('table').append(trHTML);
 
                    },
                    error: function (textStatus, errorThrown) {

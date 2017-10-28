@@ -105,7 +105,12 @@
             <artifactId>jsp-api</artifactId>
             <version>2.2</version>
         </dependency>
-                                
+        <dependency>
+            <groupId>net.sf.supercsv</groupId>
+            <artifactId>super-csv</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -115,7 +120,12 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
-        </resources>  
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>${basedir}/src/test/resources</directory>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
